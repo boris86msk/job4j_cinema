@@ -5,7 +5,7 @@ import java.util.Map;
 public class User {
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
             "id", "id",
-            "user_name", "name",
+            "full_name", "name",
             "email", "email",
             "password", "password"
     );

@@ -1,7 +1,7 @@
 create table films
 (
     id                  serial primary key,
-    name                varchar                    not null,
+    film_name           varchar                    not null,
     description         varchar                    not null,
     "year"              int                        not null,
     genre_id            int references genres (id) not null,

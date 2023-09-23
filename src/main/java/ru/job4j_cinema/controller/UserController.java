@@ -13,8 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import ru.job4j_cinema.service.UserService;
 
-import java.util.Optional;
-
 @Controller
 @RequestMapping("/users")
 @ThreadSafe
@@ -31,28 +29,14 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(Model model, @ModelAttribute User user) {
-        //var savedUser = userService.save(user);
-        var savedUser = Optional.of(new Object());
+    public String register(Model model, @ModelAttribute User user, HttpServletRequest request) {
+        var savedUser = userService.save(user);
         if (savedUser.isEmpty()) {
             model.addAttribute("message", "Пользователь с такой почтой уже существует");
             return "errors/404";
         }
-        return "main";
+        return loginUser(user, model, request);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @GetMapping("/login")
     public String getLoginPage() {
@@ -64,11 +48,11 @@ public class UserController {
         var userOptional = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
         if (userOptional.isEmpty()) {
             model.addAttribute("error", "Почта или пароль введены неверно");
-            return "users/login";
+            return "errors/404";
         }
         var session = request.getSession();
         session.setAttribute("user", userOptional.get());
-        return "redirect:/vacancies";
+        return "redirect:/index";
     }
 
     @GetMapping("/logout")

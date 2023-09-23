@@ -1,17 +1,20 @@
 <div th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="/">Job4j_CinEma</a>
+            <a class="navbar-brand" href="/welcome">Job4j_CinEma</a>
             <div class="collapse navbar-collapse bg-success text-white">
                 <div class="navbar-nav flex-grow-1">
-                    <a class="nav-item nav-link active" href="/">Главная</a>
-                    <a class="nav-item nav-link active">Афиша</a>
-                    <a class="nav-item nav-link active">Сеансы</a>
-                    <a class="nav-item nav-link active">Купить билеты</a>
+                    <a class="nav-item nav-link active">Расписание</a>
+                    <a class="nav-item nav-link active" href="/allfilms">Фильмотека</a>
+                    <a class="nav-item nav-link active">Контакты</a>
                 </div>
-                <div class="d-flex">
+                <div class="d-flex" th:if="${user.name == 'Гость'}">
                     <a class="nav-link text-secondary me-3" th:href="@{/users/register}">Регистрация</a>
                     <a class="nav-link text-secondary" th:href="@{/users/login}">Войти</a>
+                </div>
+                <div class="d-flex" th:if="${user.name != 'Гость'}">
+                    <a class="nav-link text-secondary me-3" href="#" th:text="${user.name}"></a>
+                    <a class="nav-link text-secondary" th:href="@{/users/logout}">Выйти</a>
                 </div>
             </div>
         </div>

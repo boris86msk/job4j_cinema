@@ -588,6 +588,15 @@ pre code {
   margin-left: auto;
 }
 
+.container-film {
+  width: 50%;
+  height:50%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .row {
   display: -ms-flexbox;
   display: flex;
@@ -6108,7 +6117,7 @@ button.bg-success:focus {
 }
 
 .bg-img {
-  background-image: url("\\kirpich.jpg");
+  background-image: url("\\images\\kirpich.jpg");
   background-attachment: fixed;
   background-size: cover;
   min-height: 100%;
