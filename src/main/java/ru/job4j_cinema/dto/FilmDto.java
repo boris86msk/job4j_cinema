@@ -20,7 +20,6 @@ public class FilmDto {
     private int minimalAge;
     private int durationInMinutes;
     private int genre;
-
     private int file;
 
     public FilmDto() {

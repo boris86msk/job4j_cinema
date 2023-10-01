@@ -8,10 +8,10 @@ import ru.job4j_cinema.service.FilmsService;
 
 @Controller
 @ThreadSafe
-public class WelcomeController {
+public class IndexController {
     private final FilmsService filmsService;
 
-    public WelcomeController(FilmsService filmsService) {
+    public IndexController(FilmsService filmsService) {
         this.filmsService = filmsService;
     }
 
@@ -23,7 +23,7 @@ public class WelcomeController {
     //тестовый метод
     @GetMapping("index")
     public String getMain(Model model) {
-        model.addAttribute("films", filmsService.getAllFilms());
+        model.addAttribute("films", filmsService.getAllForView());
         return "index";
     }
 }

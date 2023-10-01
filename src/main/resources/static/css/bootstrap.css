@@ -589,8 +589,8 @@ pre code {
 }
 
 .container-film {
-  width: 50%;
-  height:50%;
+  width: 70%;
+  height:80%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -3212,6 +3212,7 @@ input[type="button"].btn-block {
   margin-left: -1px;
 }
 
+
 .btn-toolbar {
   display: -ms-flexbox;
   display: flex;
@@ -3219,6 +3220,7 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  margin-bottom: 10px;
 }
 
 .btn-toolbar .input-group {
@@ -6182,7 +6184,7 @@ button.bg-dark:focus {
 }
 
 .border {
-  border: 1px solid #dee2e6 !important;
+  border: 2px solid #dee2e6 !important;
 }
 
 .border-top {
@@ -6194,7 +6196,7 @@ button.bg-dark:focus {
 }
 
 .border-bottom {
-  border-bottom: 1px solid #dee2e6 !important;
+  border-bottom: 3px solid #dee2e6 !important;
 }
 
 .border-left {
@@ -7459,6 +7461,22 @@ button.bg-dark:focus {
 .mt-0,
 .my-0 {
   margin-top: 0 !important;
+}
+
+.border-dark-3 {
+  border: 3px solid #0c1212 !important;
+}
+
+.border-dark-1 {
+  border: 1px solid #0c1212 !important;
+}
+
+.my-screen {
+  margin-bottom: 25px;
+}
+
+.my-row {
+  padding-bottom: 10px;
 }
 
 .my-footer {

@@ -6,5 +6,6 @@ import java.util.Collection;
 import java.util.List;
 
 public interface FilmsService {
-    Collection<Film> getAllFilms();
+    Collection<List<Film>> getAllForView();
+    List<Film> getAll();
 }

@@ -12,14 +12,20 @@
 <div class="container-fluid">
     <header th:insert="blocks/header :: header"></header>
     <div class="container">
-        <h2 class="text-white">Сегодня в прокате</h2>
+        <h2 class="text-white text-center">Сегодня в прокате</h2>
 <!--        переделаем на сансы-->
-        <div class="row" th:each="film: ${films}">
-            <div class="container-film col-md-6" >
-                <div>
+        <div class="container-film d-flex justify-content-center" th:each="film: ${films}">
+            <div class="row">
+                <div class="col-sm-6">
                     <a th:href="@{/ticket}">
-                    <img class="img-fluid rounded" th:src="@{${film.getFile()}}" alt="My_img">
-                    <h5 class="text-white" th:text="${film.getName()}"></h5>
+                        <img class="img-fluid rounded" th:src="@{${film.get(0).getFile}}" alt="My_img">
+                        <h5 class="text-white" th:text="${film.get(0).getName()}"></h5>
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <a th:href="@{/ticket}">
+                        <img class="img-fluid rounded" th:src="@{${film.get(1).getFile}}" alt="My_img">
+                        <h5 class="text-white" th:text="${film.get(1).getName()}"></h5>
                     </a>
                 </div>
             </div>

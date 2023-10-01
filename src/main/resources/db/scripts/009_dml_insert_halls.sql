@@ -1,3 +1,3 @@
-insert into halls(name, row_count, place_count, description) values('Красный', 18, 20, '2D, мощное серео звучание, 2 основных входа/выхода');
-insert into halls(name, row_count, place_count, description) values('синий', 14, 16, '3D, dolby digital, 1 основной вход/выход, кресла повышенной комфортности');
-insert into halls(name, row_count, place_count, description) values ('зеленый', 10, 10, '3D, dolby digital, 1 основной вход/выход, кресла повышенной комфортности с раздельными подлокотниками');
+insert into halls(halls_name, row_count, place_count, description) values('красный', 18, 20, '2D, мощное серео звучание, 2 основных входа/выхода');
+insert into halls(halls_name, row_count, place_count, description) values('синий', 14, 16, '3D, dolby digital, 1 основной вход/выход, кресла повышенной комфортности');
+insert into halls(halls_name, row_count, place_count, description) values ('зеленый', 10, 10, '3D, dolby digital, 1 основной вход/выход, кресла повышенной комфортности с раздельными подлокотниками');

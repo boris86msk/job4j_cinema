@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href = "@{/css/bootstrap.css}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <title>my cinema</title>
+</head>
+<body class="bg-img">
+<div class="container-fluid">
+    <header th:insert="blocks/header :: header"></header>
+    <div class="container">
+        <h2 class="text-white text-center">Сеансы на сегодня:</h2>
+        <div class="container-film d-flex justify-content-center" th:each="fs: ${filmSession}">
+            <img class="img-fluid rounded" th:src="@{${fs.getFilm().getFile()}}" alt="My_img">
+            <div class="d-flex flex-column align-items-start">
+                <div>
+                    <p3 class="text-white">Название:</p3>
+                    <p3 class="text-white" th:text="${fs.getFilm().getName()}"></p3>
+                </div>
+                <div>
+                    <p4 class="text-white">Год:</p4>
+                    <p4 class="text-white" th:text="${fs.getFilm().getYear()}"></p4>
+                </div>
+                <div>
+                    <p3 class="text-white" th:text="${fs.getFilm().getMinimalAge()}"></p3>
+                    <p3 class="text-white">+</p3>
+                </div>
+                <div>
+                    <p3 class="text-white">Жанр:</p3>
+                    <p3 class="text-white" th:text="${fs.getFilm().getGenre()}"></p3>
+                </div>
+                <div>
+                    <p3 class="text-white">Продолжительность:</p3>
+                    <p3 class="text-white" th:text="${fs.getFilm().getDurationInMinutes()}"></p3>
+                    <p3 class="text-white">мин.</p3>
+                </div>
+                <div>
+                    <p4 class="text-white">Начало сеанса:</p4>
+                    <p4 class="text-white" th:text="${fs.getTime()}"></p4>
+                </div>
+                <div th:if="${fs.getHalls().getName() == 'зеленый'}">
+                    <p4 class="text-white">Зал:</p4>
+                    <p4 class="text-success">зеленый</p4>
+                </div>
+                <div th:if="${fs.getHalls().getName() == 'синий'}">
+                    <p4 class="text-white">Зал:</p4>
+                    <p4 class="text-primary">синий</p4>
+                </div>
+                <div th:if="${fs.getHalls().getName() == 'красный'}">
+                    <p4 class="text-white">Зал:</p4>
+                    <p4 class="text-danger">красный</p4>
+                </div>
+                <div>
+                    <p4 class="text-white">Описание:</p4>
+                    <p class="text-white small" th:text="${fs.getFilm().getDescription()}"></p>
+                </div>
+                <div>
+                    <p4 class="text-white">Цена:</p4>
+                    <p4 class="text-white" th:text="${fs.getPrice()}"></p4>
+                    <a th:href="@{/ticket/{sessionId}(sessionId=${fs.getId()})}">Купить билет</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:insert="~{blocks/footer :: footer}"></footer>
+</body>
+</html>
