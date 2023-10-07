@@ -1,8 +1,8 @@
-package ru.job4j_cinema.dto;
+package ru.job4j_cinema.model;
 
 import java.util.Map;
 
-public class TicketsDto {
+public class Tickets {
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
             "id", "id",
             "session_id", "sessionId",
@@ -16,10 +16,10 @@ public class TicketsDto {
     private int place;
     private int userId;
 
-    public TicketsDto() {
+    public Tickets() {
     }
 
-    public TicketsDto(int id, int sessionId, int row, int place, int userId) {
+    public Tickets(int id, int sessionId, int row, int place, int userId) {
         this.id = id;
         this.sessionId = sessionId;
         this.row = row;

@@ -46,7 +46,7 @@ public class FilmSession {
         this.halls = halls;
     }
 
-    public LocalDateTime getStartSession(LocalDateTime startSession) {
+    public LocalDateTime getStartSession() {
         return this.startSession;
     }
 

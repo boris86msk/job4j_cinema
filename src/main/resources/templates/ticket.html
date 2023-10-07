@@ -21,13 +21,27 @@
         <div class="border my-screen">
             <p class="text-white text-center">Экран</p>
         </div>
-        <div class="btn-toolbar border-bottom my-row d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups" th:each="r: ${row}">
-            <p class="text-white" style="margin-right: 5px" th:text="${r}"></p>
-            <p class="text-white" style="margin-right: 25px">ряд</p>
-            <div class="btn-group mr-2 overflow-auto" role="group" aria-label="First group" th:each="i: ${coll}">
-                <button type="button" class="btn btn-primary btn-sm" th:text="${i}"></button>
+        <th:block th:with="count = ${map.size()}">
+            <div class="btn-toolbar border-bottom my-row d-flex justify-content-center" role="toolbar"
+                 aria-label="Toolbar with button groups" th:each="r: ${#numbers.sequence(1, count)}">
+
+                <p class="text-white" style="margin-right: 5px" th:text="${r}"></p>
+                <p class="text-white" style="margin-right: 25px">ряд</p>
+                <div class="btn-group mr-2 overflow-auto" role="group" aria-label="First group"
+                     th:each="i: ${map.get(r - 1)}">
+                    <form th:action="@{/ticket/buy}" method="post">
+                        <input type="hidden" name="session_id" th:value="${session_id}">
+                        <input type="hidden" name="row" th:value="${r}">
+                        <button th:if="${!i.startsWith('*')}" type="submit" class="btn btn-primary btn-sm"
+                                title="свободно" name="coll" th:value="${i}" th:text="${i}"></button>
+                        <button th:if="${i.startsWith('*')}" type="button" class="btn btn-secondary btn-sm"
+                                title="место занято" th:text="${i.substring(1)}">#
+                        </button>
+                    </form>
+                </div>
+
             </div>
-        </div>
+        </th:block>
     </div>
 </div>
 <footer th:insert="~{blocks/footer :: footer}"></footer>

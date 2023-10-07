@@ -20,7 +20,6 @@ public class IndexController {
         return "welcome";
     }
 
-    //тестовый метод
     @GetMapping("index")
     public String getMain(Model model) {
         model.addAttribute("films", filmsService.getAllForView());
