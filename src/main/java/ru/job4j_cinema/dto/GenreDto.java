@@ -4,11 +4,11 @@ import java.util.Map;
 
 public class GenreDto {
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
-        "id", "id",
-        "name", "genre"
-);
-private int id;
-private String genre;
+            "id", "id",
+            "name", "genre"
+    );
+    private int id;
+    private String genre;
 
 
     public GenreDto() {

@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public class Sql2oGenreRepository implements GenreRepository {
     private final Sql2o sql2o;
+
     public Sql2oGenreRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }

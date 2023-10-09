@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface FilmSessionRepository {
     Collection<FilmSessionDto> findAll();
+
     Optional<FilmSessionDto> getById(int id);
 }

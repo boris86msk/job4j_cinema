@@ -9,6 +9,7 @@ import java.util.Collection;
 @Repository
 public class Sql2oFilmRepository implements FilmRepository {
     private final Sql2o sql2o;
+
     public Sql2oFilmRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }

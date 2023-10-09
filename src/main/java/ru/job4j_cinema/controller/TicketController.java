@@ -4,16 +4,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ru.job4j_cinema.model.FilmSession;
 import ru.job4j_cinema.model.Tickets;
-import ru.job4j_cinema.model.User;
 import ru.job4j_cinema.service.FilmSessionService;
 import ru.job4j_cinema.service.TicketsService;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/ticket")
@@ -33,7 +33,7 @@ public class TicketController {
         List<Tickets> ticketsList = ticketsService.getTicketsList(filmSession.getId());
         List<List<String>> placeMap = ticketsService.getPlaceMap(ticketsList, filmSession);
 
-        model.addAttribute("tickets" ,ticketsList);
+        model.addAttribute("tickets", ticketsList);
         model.addAttribute("map", placeMap);
         model.addAttribute("session_id", sessionId);
         return "ticket";

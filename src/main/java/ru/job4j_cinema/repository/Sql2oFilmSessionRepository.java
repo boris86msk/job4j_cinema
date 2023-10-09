@@ -11,6 +11,7 @@ import java.util.Optional;
 public class Sql2oFilmSessionRepository implements FilmSessionRepository {
 
     private final Sql2o sql2o;
+
     public Sql2oFilmSessionRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }

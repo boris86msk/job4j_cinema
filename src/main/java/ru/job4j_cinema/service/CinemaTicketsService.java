@@ -41,10 +41,10 @@ public class CinemaTicketsService implements TicketsService {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < coll; j++) {
                 String place = String.valueOf(j + 1);
-                if(j < 9) {
+                if (j < 9) {
                     place = "0" + place;
                 }
-                if(array[i][j] != 0) {
+                if (array[i][j] != 0) {
                     place = "*" + place;
                 }
                 innerList.add(place);

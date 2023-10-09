@@ -9,6 +9,8 @@ import java.util.Optional;
 
 public interface TicketsService {
     List<Tickets> getTicketsList(int id);
+
     List<List<String>> getPlaceMap(List<Tickets> ticketsList, FilmSession session);
+
     Optional<Tickets> save(HttpServletRequest request);
 }

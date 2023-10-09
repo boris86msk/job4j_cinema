@@ -6,5 +6,6 @@ import java.util.Collection;
 
 public interface FilmSessionService {
     Collection<FilmSession> getFilmSession();
+
     FilmSession getById(int id);
 }

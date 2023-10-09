@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 import ru.job4j_cinema.model.Tickets;
-import ru.job4j_cinema.model.FilmSession;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,9 +20,9 @@ public class Sql2oTicketRepository implements TicketRepository {
     public Optional<Tickets> save(Tickets ticket) {
         try (var connection = sql2o.open()) {
             var sql = """
-                      INSERT INTO tickets(session_id, row_number, place_number, user_id)
-                      VALUES (:sessionId, :rowNumber, :placeNumber, :userId)
-                      """;
+                    INSERT INTO tickets(session_id, row_number, place_number, user_id)
+                    VALUES (:sessionId, :rowNumber, :placeNumber, :userId)
+                    """;
             var query = connection.createQuery(sql, true)
                     .addParameter("sessionId", ticket.getSessionId())
                     .addParameter("rowNumber", ticket.getRow())
