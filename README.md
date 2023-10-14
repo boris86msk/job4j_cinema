@@ -11,6 +11,12 @@
 * Liquibase
 * Sql2o
 
+####      инструменты тестирования:
+* JUnit 5
+* AssertJ
+* Jacoco
+* Mockito
+
 <div style="text-align: center;">Страница приветствия</div>
 
 ![](img/hello.jpg)
