@@ -39,5 +39,4 @@ class Sql2oFileRepositoryTest {
         AssertionsForClassTypes.assertThat(allFiles.get(0)).isEqualTo(resList.get(0));
         AssertionsForClassTypes.assertThat(allFiles.get(1)).isEqualTo(resList.get(1));
     }
-
 }

@@ -34,4 +34,14 @@ public class Sql2oFilmSessionRepository implements FilmSessionRepository {
             return Optional.ofNullable(session);
         }
     }
+
+    /**
+     * метод используется только для тестирования.
+     */
+    public void deleteAll() {
+        try (var connection = sql2o.open()) {
+            var query = connection.createQuery("DELETE FROM film_sessions");
+            query.executeUpdate();
+        }
+    }
 }

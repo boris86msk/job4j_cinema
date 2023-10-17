@@ -1,6 +1,7 @@
 package ru.job4j.cinema.model;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Tickets {
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
@@ -65,5 +66,22 @@ public class Tickets {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Tickets tickets = (Tickets) o;
+        return id == tickets.id && sessionId == tickets.sessionId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, sessionId);
     }
 }

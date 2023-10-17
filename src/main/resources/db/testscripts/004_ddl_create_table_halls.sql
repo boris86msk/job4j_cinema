@@ -1,4 +1,4 @@
-create table halls
+create table if not exists halls
 (
     id          serial primary key,
     halls_name        varchar not null,

@@ -47,4 +47,14 @@ public class Sql2oTicketRepository implements TicketRepository {
         }
     }
 
+    /**
+     * метод используется только для тестирования.
+     */
+    public void deleteById(int id) {
+        try (var connection = sql2o.open()) {
+            var query = connection.createQuery("DELETE FROM tickets WHERE id = :id");
+            query.addParameter("id", id);
+            query.executeUpdate();
+        }
+    }
 }
