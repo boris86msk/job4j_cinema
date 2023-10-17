@@ -43,7 +43,6 @@ class Sql2oTicketRepositoryTest {
     public void wenSuccessfulSaveNewTicket() {
         var newTickets = new Tickets(3, 1, 3, 5, 1);
         var savedTicket = sql2oTicketRepository.save(newTickets);
-        assertThat(savedTicket).isNotEmpty();
         assertThat(savedTicket.get()).isEqualTo(newTickets);
         sql2oTicketRepository.deleteById(3);
     }

@@ -1,4 +1,4 @@
-create table if not exists tickets
+create table tickets
 (
     id           serial primary key,
     session_id   int references film_sessions (id) not null,

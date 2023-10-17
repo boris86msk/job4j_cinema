@@ -1,4 +1,4 @@
-create table if not exists files
+create table files
 (
     id   serial primary key,
     name varchar not null,

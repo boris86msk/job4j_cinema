@@ -1,4 +1,4 @@
-create table if not exists films
+create table films
 (
     id                  serial primary key,
     film_name           varchar                    not null,

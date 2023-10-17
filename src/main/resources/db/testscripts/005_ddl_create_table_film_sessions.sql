@@ -1,4 +1,4 @@
-create table if not exists film_sessions
+create table film_sessions
 (
     id         serial primary key,
     film_id    int references films (id) not null,
