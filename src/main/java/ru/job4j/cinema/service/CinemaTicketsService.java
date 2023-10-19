@@ -2,6 +2,7 @@ package ru.job4j.cinema.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
+import org.sql2o.Sql2oException;
 import ru.job4j.cinema.model.Tickets;
 import ru.job4j.cinema.model.FilmSession;
 import ru.job4j.cinema.model.User;
@@ -56,13 +57,17 @@ public class CinemaTicketsService implements TicketsService {
     }
 
     @Override
-    public Optional<Tickets> save(HttpServletRequest request) {
-        Tickets tickets = new Tickets();
-        tickets.setSessionId(Integer.parseInt(request.getParameter("session_id")));
-        tickets.setRow(Integer.parseInt(request.getParameter("row")));
-        tickets.setPlace(Integer.parseInt(request.getParameter("coll")));
-        User user = (User) request.getSession().getAttribute("user");
-        tickets.setUserId(user.getId());
-        return ticketRepository.save(tickets);
+    public Optional<Tickets> save(HttpServletRequest request) throws Sql2oException {
+        try {
+            Tickets tickets = new Tickets();
+            tickets.setSessionId(Integer.parseInt(request.getParameter("session_id")));
+            tickets.setRow(Integer.parseInt(request.getParameter("row")));
+            tickets.setPlace(Integer.parseInt(request.getParameter("coll")));
+            User user = (User) request.getSession().getAttribute("user");
+            tickets.setUserId(user.getId());
+            return ticketRepository.save(tickets);
+        } catch (Sql2oException e) {
+            throw e;
+        }
     }
 }

@@ -17,7 +17,7 @@ public class Sql2oTicketRepository implements TicketRepository {
     }
 
     @Override
-    public Optional<Tickets> save(Tickets ticket) {
+    public Optional<Tickets> save(Tickets ticket) throws Sql2oException {
         try (var connection = sql2o.open()) {
             var sql = """
                     INSERT INTO tickets(session_id, row_number, place_number, user_id)
@@ -32,9 +32,8 @@ public class Sql2oTicketRepository implements TicketRepository {
             ticket.setId(generatedId);
             return Optional.of(ticket);
         } catch (Sql2oException e) {
-            e.printStackTrace();
+            throw e;
         }
-        return Optional.empty();
     }
 
     @Override
